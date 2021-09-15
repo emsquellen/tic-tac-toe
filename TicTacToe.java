@@ -47,21 +47,21 @@ public class TicTacToe {
         Player you;
         Player bot;
         TicTacToe game;
-        // if (args[0].equals("X")) {
-        // System.out.println('X');
-        // you = new Player('X', true);
-        // bot = new Player('O', false);
-        // game = new TicTacToe(you, bot);
-        // } else if (args[0].equals("O")){
-        // System.out.println('O');
-        // you = new Player('O', true);
-        // bot = new Player('X', false);
-        // game = new TicTacToe(bot, you);
-        // } else {
+        if (args[0].equals("X")) {
+        System.out.println('X');
+        you = new Player('X', true);
+        bot = new Player('O', false);
+        game = new TicTacToe(you, bot);
+        } else if (args[0].equals("O")){
+        System.out.println('O');
+        you = new Player('O', true);
+        bot = new Player('X', false);
+        game = new TicTacToe(bot, you);
+        } else {
         you = new Player('X', false);
         bot = new Player('O', false);
         game = new TicTacToe(you, bot);
-        // }
+        }
         game.playGame();
     }
 }
