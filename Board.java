@@ -27,9 +27,13 @@ public class Board {
         printBoard();
     }
 
-    public boolean winHorizontal(Player p) {
+    public void makeMove(int position, char character) {
+        board[(position - 1) / board.length][(position - 1) % board.length] = character;
+    }
+
+    public boolean winHorizontal(char character) {
         for (char[] row : this.board) {
-            if (row[0] == p.character && row[0] == row[1] && row[2] == row[1]) {
+            if (row[0] == character && row[0] == row[1] && row[2] == row[1]) {
                 return true;
             }
         }
@@ -44,31 +48,37 @@ public class Board {
         return false;
     }
 
-    public boolean winVertical(Player p) {
+    public boolean winVertical(char character) {
         for (int i = 0; i < 3; i++) {
             char[] row = new char[3];
             for (int j = 0; j < 3; j++) {
                 row[j] += this.board[j][i];
             }
-            if (row[0] == p.character && row[0] == row[1] && row[2] == row[1]) {
+            if (row[0] == character && row[0] == row[1] && row[2] == row[1]) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean winDiagonal(Player p) {
-        if (board[0][0] == p.character && board[0][0] == board[1][1] && board[2][2] == board[1][1]) {
+    public boolean winDiagonal(char character) {
+        if (board[0][0] == character && board[0][0] == board[1][1] && board[2][2] == board[1][1]) {
             return true;
         }
-        if (board[0][0] == p.character && board[0][0] == board[1][2] && board[2][2] == board[2][1]) {
+        if (board[0][0] == character && board[0][0] == board[1][2] && board[2][2] == board[2][1]) {
             return true;
         }
         return false;
     }
 
+    public boolean checkWins(char character) {
+        if (winDiagonal(character) || winHorizontal(character) || winVertical(character))
+            return true;
+        return false;
+    }
+
     public boolean checkWins(Player p) {
-        if (winDiagonal(p) || winHorizontal(p) || winVertical(p))
+        if (winDiagonal(p.character) || winHorizontal(p.character) || winVertical(p.character))
             return true;
         return false;
     }
