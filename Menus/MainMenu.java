@@ -1,5 +1,6 @@
 package Menus;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import Board.Board;
@@ -46,7 +47,14 @@ public class MainMenu implements Menu {
 
     public boolean playAgain(){
         System.out.println("Play again? [Y/N]: ");
-        String play = in.next();
-        return play.toUpperCase().equals("Y");
+        // TODO: Fix this bug
+        try {
+            String play = in.next();
+            return play.toUpperCase().equals("Y");
+            
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+        
     }
 }
