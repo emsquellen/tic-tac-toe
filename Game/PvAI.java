@@ -27,54 +27,58 @@ public class PvAI implements Game {
     public void humanIsX(Board b) {
         HumanPlayer x = new HumanPlayer('X');
         AIPlayer o = new AIPlayer('O');
-        int[] move = x.getMove(b);
-        System.out.println("Player X's choice: " + Arrays.toString(move));
-        b.makeMove(move, 'X');
-        b.printBoard();
-        if (b.checkWins(x.character)) {
-            System.out.println("Player X won!");
-            return;
-        } else if (b.isFull()) {
-            System.out.println("It's a tie!");
-            return;
-        }
-        move = o.getMove(b);
-        System.out.println("Player O's choice: " + Arrays.toString(move));
-        b.makeMove(move, 'O');
-        b.printBoard();
-        if (b.checkWins(o.character)) {
-            System.out.println("Player O won!");
-            return;
-        } else if (b.isFull()) {
-            System.out.println("It's a tie!");
-            return;
+        while (true) {
+            int[] move = x.getMove(b);
+            System.out.println("Player X's choice: " + Arrays.toString(move));
+            b.makeMove(move, 'X');
+            b.printBoard();
+            if (b.checkWins(x.character)) {
+                System.out.println("Player X won!");
+                return;
+            } else if (b.isFull()) {
+                System.out.println("It's a tie!");
+                return;
+            }
+            move = o.getMove(b);
+            System.out.println("Player O's choice: " + Arrays.toString(move));
+            b.makeMove(move, 'O');
+            b.printBoard();
+            if (b.checkWins(o.character)) {
+                System.out.println("Player O won!");
+                return;
+            } else if (b.isFull()) {
+                System.out.println("It's a tie!");
+                return;
+            }
         }
     }
 
     public void humanIsO(Board b) {
         AIPlayer x = new AIPlayer('X');
         HumanPlayer o = new HumanPlayer('O');
-        int[] move = x.getMove(b);
-        System.out.println("Player X's choice: " + Arrays.toString(move));
-        b.makeMove(move, 'X');
-        b.printBoard();
-        if (b.checkWins(x.character)) {
-            System.out.println("Player X won!");
-            return;
-        } else if (b.isFull()) {
-            System.out.println("It's a tie!");
-            return;
-        }
-        move = o.getMove(b);
-        System.out.println("Player O's choice: " + Arrays.toString(move));
-        b.makeMove(move, 'O');
-        b.printBoard();
-        if (b.checkWins(o.character)) {
-            System.out.println("Player O won!");
-            return;
-        } else if (b.isFull()) {
-            System.out.println("It's a tie!");
-            return;
+        while (true) {
+            int[] move = x.getMove(b);
+            System.out.println("Player X's choice: " + Arrays.toString(move));
+            b.makeMove(move, 'X');
+            b.printBoard();
+            if (b.checkWins(x.character)) {
+                System.out.println("Player X won!");
+                return;
+            } else if (b.isFull()) {
+                System.out.println("It's a tie!");
+                return;
+            }
+            move = o.getMove(b);
+            System.out.println("Player O's choice: " + Arrays.toString(move));
+            b.makeMove(move, 'O');
+            b.printBoard();
+            if (b.checkWins(o.character)) {
+                System.out.println("Player O won!");
+                return;
+            } else if (b.isFull()) {
+                System.out.println("It's a tie!");
+                return;
+            }
         }
     }
 }
