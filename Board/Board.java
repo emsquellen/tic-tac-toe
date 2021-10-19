@@ -1,6 +1,5 @@
 package Board;
 public class Board {
-    // stub to test Player classes, can be replaced
     public char[][] board;
 
     public Board() {

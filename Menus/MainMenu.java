@@ -12,20 +12,19 @@ public class MainMenu implements Menu {
 
     @Override
     public void run() {
-        while (true){
+        while (true) {
             Board b = new Board();
             int game = getGame();
             newGame(game, b);
-            if (!(playAgain())){
+            if (!(playAgain())) {
                 return;
             }
         }
 
-
     }
 
     public int getGame() {
-        
+
         System.out.print(String.join("\n", "=====GAME TYPES=====", "[1] Player vs AI", "[2] AI vs AI",
                 "Choose a gamemode (1-2): "));
         int gamePick = 3;
@@ -45,16 +44,10 @@ public class MainMenu implements Menu {
         }
     }
 
-    public boolean playAgain(){
+    public boolean playAgain() {
         System.out.println("Play again? [Y/N]: ");
-        // TODO: Fix this bug
-        try {
-            String play = in.next();
-            return play.toUpperCase().equals("Y");
-            
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-        
+        String play = in.next();
+        return play.toUpperCase().equals("Y");
+
     }
 }

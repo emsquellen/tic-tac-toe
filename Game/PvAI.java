@@ -20,7 +20,6 @@ public class PvAI implements Game {
         } else {
             humanIsO(b);
         }
-        in.close();
 
     }
 
