@@ -34,7 +34,7 @@ public class Board {
                 || (position[1] < 0 || position[1] > this.board[0].length)) {
             return false;
         }
-        return this.board[position[0]][position[1]] == ' ' ? true : false;
+        return this.board[position[0]][position[1]] == ' ';
     }
 
     public boolean winHorizontal(char character) {
@@ -60,9 +60,8 @@ public class Board {
     }
 
     public boolean winDiagonal(char character) {
-        return ((board[0][0] == character && board[0][0] == board[1][1] && board[2][2] == board[1][1])
-                || (board[0][2] == character && board[0][2] == board[1][1] && board[1][1] == board[2][0])) ? true
-                        : false;
+        return (board[0][0] == character && board[0][0] == board[1][1] && board[2][2] == board[1][1])
+                || (board[0][2] == character && board[0][2] == board[1][1] && board[1][1] == board[2][0]);
     }
 
     public boolean checkWins(char character) {
